@@ -19,11 +19,22 @@ func main() {
 	greeter := proto.NewGreeterService("greeter", service.Client())
 
 	// Call the greeter
-	rsp, err := greeter.Hello(context.TODO(), &proto.Request{Name: "John"})
-	if err != nil {
-		fmt.Println(err)
+	var words string
+	for {
+
+		fmt.Printf("Please input string : ")
+		n, err := fmt.Scanf("%s\n", &words)
+		if err != nil {
+			fmt.Println(n, err)
+		}
+
+		rsp, err := greeter.Hello(context.TODO(), &proto.Request{Name: words})
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		// Print response
+		fmt.Println(rsp.Greeting)
 	}
 
-	// Print response
-	fmt.Println(rsp.Greeting)
 }
