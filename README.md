@@ -17,6 +17,18 @@ $ protoc --micro_out=helloworld/proto --go_out=helloworld/proto --proto_path=hel
 ```
 hopefully that success generated files in ***helloworld/proto*** dir
 
+
+## Samples
+### HelloWorld
+run server with 
+```sh
+$ go run helloworld/server.go
+```
+then test with client 
+```sh
+$ go run helloworld/client.go
+```
+
 License
 ----
 MIT
